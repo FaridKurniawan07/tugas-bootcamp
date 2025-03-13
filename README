@@ -1,1 +1,26 @@
 #Tugas Bootcamp
+
+
+#Ganti Branch ke Branch Baru
+git checkout -b (nama branch)
+
+#Pindah Branch
+git checkout (nama branch)
+
+#List semua branch
+git branch
+
+#Tambah file untuk di commit
+git add (nama-file)
+
+#Tambah semua file untuk di commit
+git add .
+
+#Commit
+git commit -m "pesan"
+
+#Push
+git push origin (nama-branch)
+
+#Pindah folder ke dalam
+cd (nama-folder)
