@@ -1,17 +1,33 @@
 const assert = require('assert');
-const { Jumlah, Pengurangan, Perkalian } = require('../app');
+const { Biaya_Parkir } = require('../app');
+const { error } = require('console');
 
 describe('Calculate', () => {
-  describe('perkalian',() => {
-    it('perkalian angka kecil', () => {
-      assert.strictEqual(Perkalian(4,2), 8);
+  describe('Tarif Parkir Mobil',() => {
+    it('Tarif Pas 60 Menit', () => {
+      assert.strictEqual(Biaya_Parkir('Mobil',60), 5000);
     });
-    it('perkalian angka kecil lagi', () => {
-      assert.strictEqual(Perkalian(4,3), 12);
+    it('Tarif Kurang dari 60 Menit', () => {
+      assert.strictEqual(Biaya_Parkir('Mobil',40), 5000);
     });
-    it('perkalian angka besar', () => {
-      assert.strictEqual(Perkalian(4,1000), 4000);
+    it('Tarif Lebih dari 60 Menit', () => {
+      assert.strictEqual(Biaya_Parkir('Mobil',62), 9000);
     });
   });
-  
-});
+  describe('Tarif Parkir Motor',() => {
+    it('Tarif Pas 60 Menit', () => {
+      assert.strictEqual(Biaya_Parkir('Motor',60), 3000);
+    });
+    it('Tarif Kurang dari 60 Menit', () => {
+      assert.strictEqual(Biaya_Parkir('Motor',40), 3000);
+    });
+    it('Tarif Lebih dari 60 Menit', () => {
+      assert.strictEqual(Biaya_Parkir('Motor',62), 5000);
+    });
+  })
+  describe('Tarif Parkir Truck',() => {
+    it('Tarif Pas 60 Menit', () => {
+      assert.throws(() => { Biaya_Parkir('truck',60) }, Error, 'Jenis Kendaan Tidak Dikena');
+    });
+})
+})
